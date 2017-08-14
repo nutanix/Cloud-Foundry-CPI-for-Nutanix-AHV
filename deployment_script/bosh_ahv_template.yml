@@ -1,0 +1,139 @@
+---
+name: bosh-lite
+
+releases:
+- name: bosh
+  url: https://bosh.io/d/github.com/cloudfoundry/bosh?v=260
+  sha1: f8f086974d9769263078fb6cb7927655744dacbc
+
+- name: bosh-acropolis-cpi
+  url: BOSH_ACROPOLIS_CPI_RELEASE_URL
+
+networks:
+- name: default
+  type: manual
+  subnets:
+  - range: NETWORK_SUBNET_RANGE
+    gateway: NETWORK_GATEWAY_IP
+    dns: NETWORK_DNS_IP
+    cloud_properties:
+      subnet: NETWORK_SUBNET_NAME
+
+disk_pools:
+- name: disks
+  disk_size: 20_000
+
+resource_pools:
+- name: default
+  network: default
+  stemcell:
+    name: bosh-openstack-kvm-ubuntu-trusty-go_agent
+    url: BOSH_ACROPOLIS_STEMCELL_URL
+  cloud_properties:
+    cpu: 4
+    ram: 8_384  
+    disk: 20_000
+  env:
+    bosh:
+      password: "c1oudc0w"
+
+update:
+  canaries: 1
+  max_in_flight: 10
+  canary_watch_time: 5000 - 600000
+  update_watch_time: 5000 - 600000
+
+compilation:
+  workers: 1
+  network:
+  - name: default
+
+jobs:
+- name: bosh
+  instances: 1
+  resource_pool: default
+  persistent_disk_pool: disks
+  networks:
+  - name: default
+    static_ips: [DIRECTOR_IP]
+
+
+  templates:
+  - {name: nats, release: bosh}
+  - {name: postgres, release: bosh}
+  - {name: blobstore, release: bosh}
+  - {name: director, release: bosh}
+  - {name: health_monitor, release: bosh}
+  - {name: acropolis_cpi, release: bosh-acropolis-cpi}
+
+  properties:
+    nats:
+      address: 127.0.0.1
+      user: nats
+      password: nats 
+
+    postgres: &db
+      listen_address: 127.0.0.1
+      host: 127.0.0.1
+      user: postgres
+      password: postgres 
+      database: bosh
+      adapter: postgres
+
+    blobstore:
+      provider: dav
+      endpoint: http://DIRECTOR_IP:25250
+      address: DIRECTOR_IP
+      port: 25250
+      director: {user: admin, password: admin}
+      agent: {user: agent, password: agent}
+      options:
+        endpoint: http://DIRECTOR_IP:25250
+        address: DIRECTOR_IP
+        port: 25250
+        user: agent
+        password: agent
+        director: {user: director, password: director}
+        agent: {user: agent, password: agent}
+
+    director:
+      address: 127.0.0.1
+      name: bosh-ahv
+      db: *db
+      cpi_job: acropolis_cpi
+      user_management:
+        provider: local
+        local:
+          users:
+          - {name: admin, password: admin}
+          - {name: hm, password: hm}
+
+    hm:
+      director_account: {user: hm, password: hm}
+      resurrector_enabled: true
+      intervals:
+        agent_timeout: 180
+
+    acropolis: &acropolis
+      endpoint: "https://ACROPOLIS_CLUSTER_IP:9440/api/nutanix"
+      user: ACROPOLIS_CLUSTER_USERNAME
+      password: ACROPOLIS_CLUSTER_PASSWORD
+      container_name: ACROPOLIS_CLUSTER_CONTAINER_NAME
+
+    agent: {mbus: "nats://nats:nats@DIRECTOR_IP:4222"}
+
+    ntp: &ntp [0.pool.ntp.org, 1.pool.ntp.org]
+
+cloud_provider:
+  mbus: "https://username:password@DIRECTOR_IP:6868"
+  template: {name: acropolis_cpi, release: bosh-acropolis-cpi}
+
+  properties:
+    acropolis: *acropolis
+    agent: {mbus: "https://username:password@DIRECTOR_IP:6868"}
+    blobstore:
+      provider: local
+      options:
+        path: /var/vcap/micro_bosh/data/cache
+        blobstore_path: /var/vcap/micro_bosh/data/cache
+    ntp: "0.us.pool.ntp.org"
