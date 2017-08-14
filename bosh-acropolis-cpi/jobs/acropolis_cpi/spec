@@ -1,0 +1,24 @@
+---
+name: acropolis_cpi
+templates:
+   cpi.erb: bin/cpi
+   cpi.json.erb: config/cpi.json
+packages:
+- acropolis_cpi_mkisofs
+- acropolis_cpi_ruby
+- acropolis_cpi
+properties:
+   acropolis.endpoint:
+      description: "Example: https://[PRISM_IP]:[PRISM_PORT]/api/nutanix"
+   acropolis.user:
+      description: "PRISM Username"
+   acropolis.password:
+      description: "PRISM Password"
+   acropolis.container_name:
+      description: "Storage Container Name"
+   agent:
+      description: "Agent Configuration"
+   blobstore:
+      description: "Blobstore Cnfiguration"
+   ntp:
+      description: "ntp"

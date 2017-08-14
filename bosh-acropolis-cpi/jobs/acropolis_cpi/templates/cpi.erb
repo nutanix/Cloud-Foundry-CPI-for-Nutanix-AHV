@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+BOSH_PACKAGES_DIR=${BOSH_PACKAGES_DIR:-/var/vcap/packages}
+BOSH_JOBS_DIR=${BOSH_JOBS_DIR:-/var/vcap/jobs}
+
+export PATH=$BOSH_PACKAGES_DIR/acropolis_cpi_ruby/bin:$PATH
+
+export BUNDLE_GEMFILE=$BOSH_PACKAGES_DIR/acropolis_cpi/Gemfile
+bundle_cmd="${BOSH_PACKAGES_DIR}/acropolis_cpi_ruby/bin/bundle"
+
+exec $bundle_cmd exec $BOSH_PACKAGES_DIR/acropolis_cpi/bin/acropolis_cpi \
+                      $BOSH_JOBS_DIR/acropolis_cpi/config/cpi.json

@@ -1,0 +1,19 @@
+---
+# Update the values enclosed in <> before running the integration test.
+# Also, you need to set environment variable LIFECYCLE_ENV_FILE to point to this config.yml file.
+
+ACCESS_USERNAME: <PRISM_USERNAME> # Replace <PRISM_USERNAME> with valid/correct username for prism.
+ACCESS_PASSWORD: <PRISM_PASSWORD> # Replace <PRISM_PASSWORD> with valid/correct password for prism.
+ACCESS_ENDPOINT: https://<NUTANIX_CLUSTER_IP>:9440/api/nutanix # Replace <NUTANIX_CLUSTER_IP> with valid Nutanix cluster IP.
+STEMCELL_PATH: <VALID_STEMCELL_IMAGE_PATH> # Extract the .tgz file and provide the path to 'image' file to replace <VALID_STEMCELL_IMAGE_PATH>.
+container_name: <VALID_STORAGE_CONTAINER_NAME> # Replace <VALID_STORAGE_CONTAINER_NAME> with a valid storage container name.
+ntp: 0.us.pool.ntp.org # Replace '0.us.pool.ntp.org' with valid ntp.
+subnet: <VALID_SUBNET_NAME> # Replace <VALID_SUBNET_NAME> with a valid/existing subnet name.
+manual_ip: <VALID_STATIC_IP> # Replace <VALID_STATIC_IP> with a valid static IP within the subnet range.
+gateway: <VALID_GATEWAY> # Replace <VALID_GATEWAY> with a valid gateway.
+netmask: <VALID_NETMASK> # Replace <VALID_NETMASK> with a valid netmask.
+dns: [<VALID_DNS>] # Replace <VALID_DNS> with a valid DNS.
+resource_pool:
+- cpu: 4
+  disk: 20000
+  ram: 16384

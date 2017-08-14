@@ -1,0 +1,12 @@
+---
+name: acropolis_cpi
+
+dependencies:
+- acropolis_cpi_ruby
+
+files:
+- acropolis_cpi/Gemfile
+- acropolis_cpi/Gemfile.lock
+- acropolis_cpi/bin/**/*
+- acropolis_cpi/lib/**/*
+- acropolis_cpi/vendor/package/**/*

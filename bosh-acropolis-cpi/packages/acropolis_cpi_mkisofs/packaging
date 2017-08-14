@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e -x
+
+echo "Installing smake"
+tar xvf acropolis_cpi_mkisofs/smake-1.2.4.tar.bz2
+pushd smake-1.2.4 > /dev/null
+  make
+popd > /dev/null
+
+echo "Installing smake"
+tar xvf acropolis_cpi_mkisofs/smake-1.2.4.tar.bz2
+pushd smake-1.2.4 > /dev/null
+  make
+popd > /dev/null
+
+echo "Installing mkisofs"
+tar xvf acropolis_cpi_mkisofs/cdrtools-3.00.tar.bz2
+pushd cdrtools-3.00 > /dev/null
+  patch -g 0 -f -p0 -i ../acropolis_cpi_mkisofs/patch-include_schily_sha2.h
+
+  ../smake-1.2.4/psmake/smake
+  mkdir -p $BOSH_INSTALL_TARGET/bin
+  cp -a mkisofs/OBJ/*/mkisofs $BOSH_INSTALL_TARGET/bin/
+popd > /dev/null

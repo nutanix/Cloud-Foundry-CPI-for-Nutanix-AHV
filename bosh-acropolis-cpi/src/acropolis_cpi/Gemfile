@@ -1,0 +1,23 @@
+source 'https://rubygems.org'
+
+gem 'bosh_common'
+gem 'bosh_cpi'
+gem 'membrane',    '~>1.1.0'
+gem 'builder',     '~>3.1.4'
+gem 'nokogiri',    '~>1.7.0.1'
+gem 'httpclient',  '=2.7.1'
+gem 'rest-client', '~> 1.8'
+gem 'mono_logger', '~>1.1.0'
+gem 'oga'
+
+group :development, :test do
+  gem 'fakefs'
+  gem 'parallel_tests'
+  gem 'rack', '~> 1.6.4'
+  gem 'rake', '~>10.0'
+  gem 'rspec', '~> 3.0'
+  gem 'rspec-instafail'
+  gem 'rspec-its'
+  gem 'simplecov', :require => false
+  gem 'timecop', '~>0.7.1'
+end

@@ -1,0 +1,17 @@
+<%=
+   params = {
+      'cloud' => {
+         'plugin' => 'acropolis',
+         'properties' => {
+            'endpoint'       => p('acropolis.endpoint'),
+            'user'           => p('acropolis.user'),
+            'password'       => p('acropolis.password'),
+            'container_name' => p('acropolis.container_name'),
+            'agent'          => p('agent'),
+            'ntp'            => p('ntp'),
+            'blobstore'      => p('blobstore')
+         }
+      }
+   }
+   JSON.dump(params)
+%>
