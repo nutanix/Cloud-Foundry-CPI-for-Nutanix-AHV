@@ -22,4 +22,4 @@
 **Create a new storage container or identify existing container which will be used for Cloud Foundry deployment**
 
 ## Deploy
-Once the Nutanix environment is ready, follow the [auto deployment doc](docs/auto-deployment.md) to deploy Cloud Foundry on Nutanix AHV.
+Once the Nutanix environment is ready, follow the [auto deployment doc](auto-deployment.md) to deploy Cloud Foundry on Nutanix AHV.
