@@ -1,0 +1,6 @@
+---
+final_name: acropolis_cpi
+blobstore:
+  provider: local
+  options:
+    blobstore_path: /home/amit/cpi_compare/fixed_cpi/blobstore
