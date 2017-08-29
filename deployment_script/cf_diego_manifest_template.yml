@@ -23,8 +23,8 @@ resource_pools:
 - name: small_z1
   network: cf_private
   stemcell:
-    name: bosh-acropolis-kvm-ubuntu-trusty-go_agent
-    version: latest
+    name: bosh-openstack-kvm-ubuntu-trusty-go_agent
+    version: 0000.dev3
   cloud_properties:
     cpu: 2
     ram: 2_384  
@@ -32,8 +32,8 @@ resource_pools:
 - name: diego_z1
   network: cf_private
   stemcell:
-    name: bosh-acropolis-kvm-ubuntu-trusty-go_agent
-    version: latest
+    name: bosh-openstack-kvm-ubuntu-trusty-go_agent
+    version: 0000.dev3
   cloud_properties:
     cpu: 2
     ram: 4_384  
@@ -41,8 +41,8 @@ resource_pools:
 - name: diego_cell_z1
   network: cf_private
   stemcell:
-    name: bosh-acropolis-kvm-ubuntu-trusty-go_agent
-    version: latest
+    name: bosh-openstack-kvm-ubuntu-trusty-go_agent
+    version: 0000.dev3
   cloud_properties:
     cpu: 4
     ram: 8_384  

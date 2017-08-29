@@ -4,7 +4,8 @@
 1. Create a VM (below example is tested on CentOS) in AHV with minimum config of 8 GB RAM,  2 vCPU / 1 Core, and 40 GB disk.
 2. Follow steps given in [Initializing Nutanix AHV](init-nutanix-ahv.md).
 2. Build the CPI by following the steps in [Development](development.md).
-3. Copy the CPI to the deployment_script directory (make sure you rename it to `bosh-acropolis-cpi-0+dev.1.tgz`):
+3. Copy the CPI to the deployment_script directory (make sure you rename it to `bosh-acropolis-cpi-0+dev.1.tgz`)
+4. Download the stemcell from https://drive.google.com/file/d/0B1OFCdRVe6xqOHRmcThsdUlHMVE/view?usp=sharing (make sure you rename it to `acropolis_stemcell.tgz`)
 ```
 Acropolis-CPI-Setup
 |---acropolis_stemcell.tgz <-- Stemcell for Nutanix
@@ -41,4 +42,3 @@ or
 ```
 bash setup.sh
 ```
-
