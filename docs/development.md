@@ -30,6 +30,8 @@ $ bosh add blob ../blobs/acropolis_ruby/ruby-2.2.4.tar.gz acropolis_cpi_ruby
 $ bosh add blob ../blobs/acropolis_ruby/ruby-2.3.1.tar.gz acropolis_cpi_ruby
 $ bosh add blob ../blobs/acropolis_ruby/rubygems-2.6.2.tgz acropolis_cpi_ruby
 $ bosh add blob ../blobs/acropolis_ruby/rubygems-2.6.7.tgz acropolis_cpi_ruby
+$ bosh add blob ../blobs/acropolis_ruby/yaml-0.1.5.tar.gz acropolis_cpi_ruby
+
 $ bosh upload blobs
 ```
 Ensure that blobs match with those in ```config\blobs.yml``` by running the following command:
@@ -66,4 +68,3 @@ Edit ```config.yml``` present in ```spec/assets``` before executing the integrat
 ```bash
 bundle exec rspec spec/integration
 ```
-
