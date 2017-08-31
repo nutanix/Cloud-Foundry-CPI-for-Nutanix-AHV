@@ -5,10 +5,8 @@ This is a BOSH CPI for Nutanix AHV.
 Follow below steps to setup Nutanix cluster, bosh and CF deployment - 
 
 Step-1: [Prepare Nutanix Cluster for BOSH deployment](docs/init-nutanix-ahv.md)
+Step-2: [Deployment of BOSH and Cloud Foundry](docs/auto-deployment.md)
 
-## Auto Deployment of Cloud Foundry
-
-See [auto deployment doc](docs/auto-deployment.md).
 
 ## Development
 
