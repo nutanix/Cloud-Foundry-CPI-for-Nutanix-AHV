@@ -1,6 +1,4 @@
-# Initializing Bosh Environment on Nutanix AHV
-
-## Prepare Nutanix Environment
+# Prepare Nutanix Cluster for BOSH deployment
 
 **Create a Managed Network on Nutanix AHV Cluster. The following information is required:**
 
