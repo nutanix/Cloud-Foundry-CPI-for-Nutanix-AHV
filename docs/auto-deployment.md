@@ -1,4 +1,4 @@
-# Auto Deployment of Cloud Foundry
+# Deployment of BOSH and Cloud Foundry
 
 ## Pre-requisites
 1. Create a VM (below example is tested on CentOS) in AHV with minimum config of 8 GB RAM,  2 vCPU / 1 Core, and 40 GB disk.
