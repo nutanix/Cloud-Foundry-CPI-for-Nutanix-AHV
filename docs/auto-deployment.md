@@ -3,11 +3,14 @@
 ## Pre-requisites
 1. Create a VM (below example is tested on CentOS) in AHV with minimum config of 8 GB RAM,  2 vCPU / 1 Core, and 40 GB disk.
 2. Follow steps given in [Initializing Nutanix AHV](init-nutanix-ahv.md).
-2. Build the CPI by following the steps in [Development](development.md).
+2. Build the CPI by following the steps in [Development](development.md). If you don't want to build it, you can download it from - https://drive.google.com/file/d/0BwOKNTtBoe4oSjNCYzcwTThJR0k/view?usp=sharing
+3. Clone the github repo from - https://github.com/nutanix/Cloud-Foundry-CPI-for-Nutanix-AHV.git
 3. Copy the CPI to the deployment_script directory (make sure you rename it to `bosh-acropolis-cpi-0+dev.1.tgz`)
-4. Download the stemcell from https://drive.google.com/file/d/0B1OFCdRVe6xqOHRmcThsdUlHMVE/view?usp=sharing (make sure you rename it to `acropolis_stemcell.tgz`)
+4. Download the stemcell from - https://drive.google.com/file/d/0B1OFCdRVe6xqOHRmcThsdUlHMVE/view?usp=sharing (make sure you rename it to `acropolis_stemcell.tgz`) and copy it to the deployment_script directory.
+
+Now the deployment_script directory should look like this -
 ```
-Acropolis-CPI-Setup
+deployment_script
 |---acropolis_stemcell.tgz <-- Stemcell for Nutanix
 |---bosh-acropolis-cpi-0+dev.1.tgz <-- Nutanix CPI
 |---bosh_ahv_template.yml <-- Template file for bosh-ahv.yml
