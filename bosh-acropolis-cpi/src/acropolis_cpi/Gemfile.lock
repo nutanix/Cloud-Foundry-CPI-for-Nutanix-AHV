@@ -26,12 +26,12 @@ GEM
       multi_json (>= 1.8.4)
     membrane (1.1.0)
     mime-types (2.99.3)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.4.0)
     mono_logger (1.1.0)
     multi_json (1.12.1)
     netrc (0.11.0)
-    nokogiri (1.7.0.1)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.10.8)
+      mini_portile2 (~> 2.4.0)
     oga (2.10)
       ast
       ruby-ll (~> 2.1)
@@ -87,7 +87,7 @@ DEPENDENCIES
   httpclient (= 2.7.1)
   membrane (~> 1.1.0)
   mono_logger (~> 1.1.0)
-  nokogiri (~> 1.7.0.1)
+  nokogiri (~> 1.10.8)
   oga
   parallel_tests
   rack (~> 1.6.4)
