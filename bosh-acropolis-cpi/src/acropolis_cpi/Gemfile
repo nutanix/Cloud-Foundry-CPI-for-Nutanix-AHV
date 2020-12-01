@@ -14,7 +14,7 @@ group :development, :test do
   gem 'fakefs'
   gem 'parallel_tests'
   gem 'rack', '~> 1.6.4'
-  gem 'rake', '~>10.0'
+  gem 'rake', '~>12.3'
   gem 'rspec', '~> 3.0'
   gem 'rspec-instafail'
   gem 'rspec-its'
