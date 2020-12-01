@@ -13,7 +13,7 @@ gem 'oga'
 group :development, :test do
   gem 'fakefs'
   gem 'parallel_tests'
-  gem 'rack', '~> 1.6.4'
+  gem 'rack', '~> 2.1.4'
   gem 'rake', '~>10.0'
   gem 'rspec', '~> 3.0'
   gem 'rspec-instafail'
